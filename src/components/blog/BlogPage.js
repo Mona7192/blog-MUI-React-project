@@ -20,7 +20,7 @@ function BlogPage() {
 
   if (loading) return <Loader />;
 
-  if (error) return <h3>Error: {error.message}</h3>;
+  if (error) return <h3>Error...</h3>;
 
 
   return (

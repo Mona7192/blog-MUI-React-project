@@ -14,13 +14,13 @@ function BlogPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
 
-  const { loading, data, errors } = useQuery(GET_POST_INFO, {
+  const { loading, data, error } = useQuery(GET_POST_INFO, {
     variables: { slug },
   });
 
   if (loading) return <Loader />;
 
-  if (errors) return <h3>Error...</h3>;
+  if (error) return <h3>Error: {error.message}</h3>;
 
 
   return (

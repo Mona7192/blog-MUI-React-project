@@ -10,12 +10,12 @@ import Loader from "../shared/Loader";
 function AuthorPage() {
   const { slug } = useParams();
 
-  const { loading, data, errors } = useQuery(GET_AUTHOR_INFO, {
+  const { loading, data, error } = useQuery(GET_AUTHOR_INFO, {
     variables: { slug },
   });
   if (loading) return <Loader />;
 
-  if (errors) return <h3>Error...</h3>;
+  if (error) return <h3>Error...</h3>;
 
   const {
     author: { name, field, avatar, description, posts },

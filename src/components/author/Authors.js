@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 import Loader from "../shared/Loader";
 
 function Authors() {
-  const { loading, data, errors } = useQuery(GET_AUTHORS_INFO);
+  const { loading, data, error } = useQuery(GET_AUTHORS_INFO);
 
   if (loading) return <Loader />;
 
-  if (errors) return <h3>Error...</h3>;
+  if (error) return <h3>Error...</h3>;
 
-  const { authors } = data;
+    const authors = Array.isArray(data?.authors) ? data.authors : [];
   return (
     <Grid
       container
